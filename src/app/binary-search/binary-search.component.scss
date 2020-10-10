@@ -1,0 +1,82 @@
+.wrraper {
+  height: 600px;
+  background-color: gray;
+}
+
+.input_box {
+  width: 20%;
+  height: 40px;
+  border: 2px solid blue;
+}
+
+.title {
+  margin: 0 auto;
+  padding-top: 16px;
+  width: 80%;
+  &__text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    background-color: rgb(255, 187, 0);
+    color: #fff;
+    border: 3px solid blue;
+  }
+}
+
+.algorithm {
+  display: flex;
+  height: 300px;
+  &__age_guess {
+    padding: 32px;
+    width: 60%;
+    &__range {
+      margin-bottom: 60px;
+      font-weight: bold;
+      &__text {
+        display: inline-block;
+        width: 20%;
+      }
+    }
+    &__right {
+      margin-bottom: 60px;
+      font-weight: bold;
+    }
+    &__btns {
+      text-align: center;
+    }
+    &__btn {
+      display: inline-block;
+      margin: 0 16px;
+      font-weight: bold;
+      width: 20%;
+      height: 40px;
+    }
+  }
+  &__messages {
+    margin-right: 16px;
+    padding: 4px;
+    width: 40%;
+    border: 3px solid #000;
+    overflow: scroll;
+    &__text {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.caution {
+  list-style: none;
+  margin: 8px 16px;
+  border: 3px solid #000;
+  width: 80%;
+  height: 80px;
+  &__messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: red;
+  }
+}

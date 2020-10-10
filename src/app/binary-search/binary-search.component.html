@@ -1,0 +1,97 @@
+<div class="wrraper">
+  <div class="title">
+    <h1 class="title__text">二分探索：年齢あて</h1>
+  </div>
+
+  <div class="algorithm">
+    <form
+      #formCheck="ngForm"
+      (ngSubmit)="onclick()"
+      class="algorithm__age_guess"
+    >
+      <div class="algorithm__age_guess__range">
+        <span class="algorithm__age_guess__range__text">範囲を入力</span>
+        <input
+          type="text"
+          class="input_box"
+          name="input_under_age"
+          [(ngModel)]="lower"
+          #lowerAge="ngModel"
+          required
+          maxlength="3"
+          pattern="^[0-9A-Za-z]+$"
+        />
+        <span> ~ </span>
+        <input
+          type="text"
+          class="input_box"
+          name="input_under_age"
+          [(ngModel)]="upper"
+          #upperAge="ngModel"
+          required
+          maxlength="3"
+          pattern="^[0-9A-Za-z]+$"
+        />
+      </div>
+      <div class="algorithm__age_guess__right">
+        <span class="algorithm__age_guess__range__text">年齢</span>
+        <input
+          type="text"
+          class="input_box"
+          name="input_answer_age"
+          [(ngModel)]="answer"
+          #answerAge="ngModel"
+          required
+          maxlength="3"
+          pattern="^[0-9A-Za-z]+$"
+        />
+      </div>
+      <div class="algorithm__age_guess__btns">
+        <!-- formに問題があるか、サブミット済ならボタンを無効 -->
+        <input value="開始" type="submit" [disabled]="formCheck.invalid || formCheck.submitted"
+        class="algorithm__age_guess__btn" />
+        <!-- formが更新されてないならボタンを無効 -->
+        <input value="リセット" type="reset" [disabled]="formCheck.pristine"
+        class="algorithm__age_guess__btn" (click)="onreset()" />
+      </div>
+    </form>
+    <div class="algorithm__messages">
+      <ul
+        class="algorithm__messages__text"
+        *ngFor="let message of answer_messages"
+      >
+        <li>{{ message }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- エラーメッセージ -->
+  <div class="caution">
+    <ul
+      class="caution__messages"
+      *ngIf="lowerAge.errors && (lowerAge.dirty || lowerAge.touched)"
+    >
+      <li [hidden]="!lowerAge.errors.required">※下限が未入力です</li>
+      <li [hidden]="!lowerAge.errors.maxlength">※入力内容が長すぎます</li>
+      <li [hidden]="!lowerAge.errors.pattern">※半角英数字で入力してください</li>
+    </ul>
+    <ul
+      class="caution__messages"
+      *ngIf="upperAge.errors && (upperAge.dirty || upperAge.touched)"
+    >
+      <li [hidden]="!upperAge.errors.required">※上限が未入力です</li>
+      <li [hidden]="!upperAge.errors.maxlength">※入力内容が長すぎます</li>
+      <li [hidden]="!upperAge.errors.pattern">※半角英数字で入力してください</li>
+    </ul>
+    <ul
+      class="caution__messages"
+      *ngIf="answerAge.errors && (answerAge.dirty || answerAge.touched)"
+    >
+      <li [hidden]="!answerAge.errors.required">※年齢が未入力です</li>
+      <li [hidden]="!answerAge.errors.maxlength">※入力内容が長すぎます</li>
+      <li [hidden]="!answerAge.errors.pattern">
+        ※半角英数字で入力してください
+      </li>
+    </ul>
+  </div>
+</div>
