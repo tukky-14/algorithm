@@ -20,8 +20,8 @@
       </div>
       <div class="algorithm__age_guess__btns">
         <!-- formに問題があるか、サブミット済ならボタンを無効 -->
-        <input value="開始" type="submit" [disabled]="formCheck.invalid || formCheck.submitted"
-          class="algorithm__age_guess__btn" />
+        <input value="開始" type="submit" [disabled]="formCheck.invalid" class="algorithm__age_guess__btn"
+          id="submit_btn" />
         <!-- formが更新されてないならボタンを無効 -->
         <input value="リセット" type="reset" [disabled]="formCheck.pristine" class="algorithm__age_guess__btn"
           (click)="onreset()" />
@@ -49,9 +49,7 @@
     <ul class="caution__messages" *ngIf="answerAge.errors && (answerAge.dirty || answerAge.touched)">
       <li [hidden]="!answerAge.errors.required">※年齢が未入力です</li>
       <li [hidden]="!answerAge.errors.maxlength">※入力内容が長すぎます</li>
-      <li [hidden]="!answerAge.errors.pattern">
-        ※半角英数字で入力してください
-      </li>
+      <li [hidden]="!answerAge.errors.pattern">※半角英数字で入力してください</li>
     </ul>
   </div>
 </div>

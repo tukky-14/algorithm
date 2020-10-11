@@ -19,11 +19,11 @@ export class BubbleSortComponent implements OnInit {
   }
 
   // 乱数の作成
-  createRandam(): void {
+  createRandom(): void {
     for (let i = 0; i < 81; i++) {
-      const randam: number = Math.floor(Math.random() * 999);
+      const random: number = Math.floor(Math.random() * 999);
       const cell: HTMLElement = document.getElementById('number' + i);
-      cell.innerText = `${randam}`;
+      cell.innerText = `${random}`;
     }
   }
 
