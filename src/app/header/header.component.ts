@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   binary: string = "二分探索";
   bubble: string = "バブルソート";
-
+  eratosthenes: string = "エラトステネスの篩";
 
   constructor() { }
 

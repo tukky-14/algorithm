@@ -1,0 +1,25 @@
+<div class="wrapper">
+  <h3>好きな数字を入力すると、その数値までに存在する素数を計算します。</h3>
+
+  <form #formCheck="ngForm" (ngSubmit)="onclick()">
+    <input name="target" type="text" class="send_text" [(ngModel)]="input_num" #inputNum="ngModel" required
+    maxlength="4" pattern="^[0-9A-Za-z]+$">
+    <input type="submit" class="send_btn" [disabled]="formCheck.invalid">
+  </form>
+
+  <div class="caution">
+    <ul class="caution__messages" *ngIf="inputNum.errors && (inputNum.dirty || inputNum.touched)">
+      <li [hidden]="!inputNum.errors.required">※数値が未入力です</li>
+      <li [hidden]="!inputNum.errors.maxlength">※入力数値は4桁までにしてください</li>
+      <li [hidden]="!inputNum.errors.pattern">※半角英数字で入力してください</li>
+    </ul>
+  </div>
+
+  <div class="answer">
+    <h4 class="answer__text" *ngIf="input_num">{{input_num}}までの素数</h4>
+    <div class="answer__box">
+      <span class="answer__box__prime" *ngFor="let prime of answer_primes">「{{prime}}」</span>
+    </div>
+  </div>
+</div>
+

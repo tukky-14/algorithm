@@ -10,13 +10,15 @@ import { HeaderComponent } from './header/header.component';
 import { BinarySearchComponent } from './binary-search/binary-search.component';
 import { BubbleSortComponent } from './bubble-sort/bubble-sort.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EratosthenesComponent } from './eratosthenes/eratosthenes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BinarySearchComponent,
-    BubbleSortComponent
+    BubbleSortComponent,
+    EratosthenesComponent
   ],
   imports: [
     BrowserModule,

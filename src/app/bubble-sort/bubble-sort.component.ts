@@ -84,8 +84,6 @@ export class BubbleSortComponent implements OnInit {
         comparison.innerText = num;
       }
       auto_nums_compare--;
-      // console.log(auto_nums_count);
-      // console.log(auto_nums_compare);
     }, 1);
   }
 
